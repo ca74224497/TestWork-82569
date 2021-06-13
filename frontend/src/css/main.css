@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: url("../images/tweed.png") gray;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.site-header {
+    height: 178px;
+}
+
+.logo {
+    height: 100%;
+    background: url("../images/logo.png") transparent no-repeat;
+}
+
+.logo__title {
+    visibility: hidden;
+}
+
+#app
+{
+    width: 1000px;
+    display: block;
+    padding: 50px 0 !important;
+}
+
+.loader-default-height {
+    height: 300px;
+}
+
