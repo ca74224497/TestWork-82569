@@ -1,0 +1,27 @@
+СПИСОК ДЕЙСТВИЙ, НЕОБХОДИМЫХ ДЛЯ ДЕПЛОЯ ПРОЕКТА:
+
+1. Склонировать в корень сайта (%webroot%) репозиторий: git clone git@github.com:ca74224497/TestWork-82569.git .;
+2. Выставить корректные права на файлы и папки (примеры для Laravel можно найти в официальной документации);
+3. Настроить apache/nginx/etc (добавить виртуальный хост итд);
+4. Перейти в папку %webroot%/backend и выполнить команду "composer install";
+5. Перейти в папку %webroot%/frontend и выполнить команду "npm install";
+6. Перейти в папку %webroot%/backend и создать файл ".env" с переменными окружения, 
+добавить туда параметры подключения к бд и прочие важные настройки, пример:
+APP_NAME=TestWork82569
+APP_URL=http://testwork82569.site
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=testwork82569
+DB_USERNAME=root
+DB_PASSWORD=rootpwd
+DB_CHARSET=utf8mb4
+DB_COLLATION=utf8mb4_unicode_ci
+...;
+7. Перейти в папку %webroot%/backend и выполнить команду создания БД: "php artisan make:database testwork82569";
+8. Поднять миграцию БД командой: "php artisan migrate";
+9. Добавить тестовые данные командой: "php artisan db:seed --class=EmployeesTableSeeder";
+10. Очистить кэш Laravel командой: "php artisan optimize:clear";
+11. Перейти в корень сайта (%webroot) и выполнить команду "npm run build".
+
+Если все сделано правильно, то должно выглядеть как на видео: https://youtu.be/hIxNbhGGCXQ
