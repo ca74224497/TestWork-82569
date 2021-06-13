@@ -73,9 +73,19 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        $employee->update($request->only(self::FIELDS));
+        try {
+            $employee->update($request->only(self::FIELDS));
+            $response = [
+                'success' => 'ok'
+            ];
+        } catch(\Throwable $t) {
+            \Log::error($t->getMessage());
+            $response = [
+                'error' => 'An error occurred during an employee update.'
+            ];
+        }
 
-        return response()->json($employee, HttpCodes::HTTP_OK);
+        return response()->json($response, HttpCodes::HTTP_OK);
     }
 
     /**
